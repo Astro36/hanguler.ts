@@ -1,0 +1,41 @@
+{
+  "name": "hanguler",
+  "version": "0.1.0",
+  "description": "Simple Hangul Manipulating Library",
+  "main": "lib/index.js",
+  "keywords": [
+    "alphabet",
+    "hangul",
+    "korean"
+  ],
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.12.0",
+    "jsdoc": "^3.5.5",
+    "mocha": "^5.2.0",
+    "parcel-bundler": "^1.8.1"
+  },
+  "scripts": {
+    "dist": "parcel build lib/index.js",
+    "docs": "jsdoc lib/index.js -d docs",
+    "lint": "eslint lib test",
+    "lint:fix": "eslint lib test --fix",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Astro36/Hanguler"
+  },
+  "author": "Astro36 <astr36@naver.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Astro36/Hanguler/issues"
+  },
+  "homepage": "https://github.com/Astro36/Hanguler#readme"
+}
