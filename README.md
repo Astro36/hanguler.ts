@@ -2,7 +2,31 @@
 
 > Simple Hangul Manipulating Library
 
+[![npm](https://img.shields.io/npm/v/hanguler.svg?style=flat-square)](https://www.npmjs.com/package/hanguler) [![npm](https://img.shields.io/npm/dt/hanguler.svg?style=flat-square)](https://www.npmjs.com/package/hanguler)
+
 **Hanguler는 [Jaemin Jo](https://github.com/e-)님의 [Hangul.js](https://github.com/e-/Hangul.js)에서 파생하여 제작되었습니다.**
+
+## ChangeLog
+
+See [CHANGELOG](./CHANGELOG.md)
+
+## Features
+
+See [API](https://astro36.github.io/Hanguler/index.html)
+
+## Installation
+
+- Install with npm:
+
+```bash
+npm install hanguler --save
+```
+
+- Clone the repo:
+
+```bash
+git clone https://github.com/Astro36/Hanguler.git
+```
 
 ## Usage
 
@@ -15,10 +39,10 @@ See [API](https://astro36.github.io/Hanguler/index.html)
 예사소리를 된소리로 바꿔줍니다:
 
 ```javascript
-const Hangul = require('hanguler');
+const Hanguler = require('hanguler');
 
 const stronger = (str) => {
-  switch(str) {
+  switch (str) {
     case 'ㄱ':
       return 'ㄲ';
     case 'ㄷ':
@@ -34,10 +58,10 @@ const stronger = (str) => {
   }
 };
 
-const input = '아버지가 방에 들어가신다';
-const output = Hangul.flatAssemble(Hangul.flatDisassemble(input).map(stronger));
+const input = '쉬프트키가 안 빠져요ㅠㅠ';
+const output = Hanguler.flatAssemble(Hanguler.flatDisassemble(input).map(stronger));
 
-console.log(output); // 아뻐찌까 빵에 뜰어까씬따
+console.log(output); // 쒸프트키까 안 빠쪄요ㅠㅠ
 ```
 
 ## License
