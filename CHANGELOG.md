@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.2
+
+Released Nov 17, 2018
+
+### Security
+
+- Update security vulnerability found dependency.
+
 ## v0.1.1
 
 Released May 3, 2018
