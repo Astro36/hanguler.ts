@@ -62,7 +62,7 @@ describe('Hanguler', () => {
   });
 
   describe('#equals()', () => {
-    it('strA와 strA의 음운이 같은지 확인합니다.', () => {
+    it('strA와 strB의 음운이 같은지 확인합니다.', () => {
       assert.equal(Hanguler.equals('흑ㅠ', '흐규'), true);
     });
   });
