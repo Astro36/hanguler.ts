@@ -33,7 +33,7 @@
     "url": "git+https://github.com/Astro36/hanguler"
   },
   "author": "Seungjae Park <astro.psj@gmail.com>",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Astro36/hanguler/issues"
   },
