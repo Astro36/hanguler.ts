@@ -2,20 +2,27 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    mocha: true,
+    node: true,
   },
   extends: [
     'airbnb-base',
-    'plugin:@typescript-eslint/recommended'
+    'plugin:@typescript-eslint/recommended',
   ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
   },
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   parserOptions: {
-    ecmaVersion: 2019,
-    sourceType: 'module',
+    project: './tsconfig.json',
   },
-  rules: {
+  plugins: ['@typescript-eslint'],
+  settings: {
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };
