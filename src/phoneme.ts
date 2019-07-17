@@ -1,10 +1,10 @@
 /**
- * codeA와 codeB를 합쳐 겹자음으로 만듭니다.
+ * codeA와 codeB를 합쳐 겹자음(겹받침)으로 만듭니다.
  * @param codeA
  * @param codeB
  */
 export function assembleConsonantCodes(codeA: number, codeB: number): number {
-    return ([
+    const recipe = [
         [12593, 12613, 12595],
         [12596, 12616, 12597],
         [12601, 12593, 12602],
@@ -15,11 +15,12 @@ export function assembleConsonantCodes(codeA: number, codeB: number): number {
         [12601, 12621, 12607],
         [12601, 12622, 12608],
         [12610, 12613, 12612],
-    ].find(([a, b]) => codeA === a && codeB === b) || [])[2] || 0;
+    ].find(([a, b]): boolean => codeA === a && codeB === b);
+    return recipe ? recipe[2] : 0;
 }
 
 /**
- * charA와 charB를 합쳐 겹자음으로 만듭니다.
+ * charA와 charB를 합쳐 겹자음(겹받침)으로 만듭니다.
  * @param charA
  * @param charB
  */
@@ -29,12 +30,12 @@ export function assembleConsonants(charA: string, charB: string): string | null 
 }
 
 /**
- * codeA와 codeB를 합쳐 겹모음으로 만듭니다.
+ * codeA와 codeB를 합쳐 겹모음(ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ)으로 만듭니다.
  * @param codeA
  * @param codeB
  */
 export function assembleVowelCodes(codeA: number, codeB: number): number {
-    return ([
+    const recipe = [
         [12631, 12623, 12632],
         [12631, 12624, 12633],
         [12631, 12643, 12634],
@@ -42,17 +43,73 @@ export function assembleVowelCodes(codeA: number, codeB: number): number {
         [12636, 12628, 12638],
         [12636, 12643, 12639],
         [12641, 12643, 12642],
-    ].find(([a, b]) => codeA === a && codeB === b) || [])[2] || 0;
+    ].find(([a, b]): boolean => codeA === a && codeB === b);
+    return recipe ? recipe[2] : 0;
 }
 
 /**
- * charA와 charB를 합쳐 겹모음으로 만듭니다.
+ * charA와 charB를 합쳐 겹모음(ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ)으로 만듭니다.
  * @param charA
  * @param charB
  */
 export function assembleVowels(charA: string, charB: string): string | null {
     const code = assembleVowelCodes(charA.charCodeAt(0), charB.charCodeAt(0));
     return code ? String.fromCharCode(code) : null;
+}
+
+/**
+ * 겹자음(겹받침)을 분리합니다.
+ * @param code
+ */
+export function disassembleConsonantCode(code: number): [number, number] | 0 {
+    const recipe = [
+        [12593, 12613, 12595],
+        [12596, 12616, 12597],
+        [12601, 12593, 12602],
+        [12601, 12609, 12603],
+        [12601, 12610, 12604],
+        [12601, 12613, 12605],
+        [12601, 12620, 12606],
+        [12601, 12621, 12607],
+        [12601, 12622, 12608],
+        [12610, 12613, 12612],
+    ].find(([, , c]): boolean => code === c);
+    return recipe ? [recipe[0], recipe[1]] : 0;
+}
+
+/**
+ * 겹자음(겹받침)을 분리합니다.
+ * @param char
+ */
+export function disassembleConsonant(char: string): [string, string] | null {
+    const codes = disassembleConsonantCode(char.charCodeAt(0));
+    return codes ? [String.fromCharCode(codes[0]), String.fromCharCode(codes[1])] : null;
+}
+
+/**
+ * 겹모음(ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ)를 분리합니다.
+ * @param code
+ */
+export function disassembleVowelCode(code: number): [number, number] | 0 {
+    const recipe = [
+        [12631, 12623, 12632],
+        [12631, 12624, 12633],
+        [12631, 12643, 12634],
+        [12636, 12627, 12637],
+        [12636, 12628, 12638],
+        [12636, 12643, 12639],
+        [12641, 12643, 12642],
+    ].find(([, , c]): boolean => code === c);
+    return recipe ? [recipe[0], recipe[1]] : 0;
+}
+
+/**
+ * 겹모음(ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ)를 분리합니다.
+ * @param char
+ */
+export function disassembleVowel(char: string): [string, string] | null {
+    const codes = disassembleVowelCode(char.charCodeAt(0));
+    return codes ? [String.fromCharCode(codes[0]), String.fromCharCode(codes[1])] : null;
 }
 
 /**
@@ -92,7 +149,7 @@ export function isBasicConsonant(char: string): boolean {
 }
 
 /**
- * code가 한글 겹자음인지 확인합니다.
+ * code가 한글 겹자음(겹받침)인지 확인합니다.
  * @param code
  */
 export function isComplexConsonantCode(code: number): boolean {
@@ -103,7 +160,7 @@ export function isComplexConsonantCode(code: number): boolean {
 }
 
 /**
- * char이 한글 겹자음인지 확인합니다.
+ * char이 한글 겹자음(겹받침)인지 확인합니다.
  * @param char
  */
 export function isComplexConsonant(char: string): boolean {
@@ -146,7 +203,7 @@ export function isBasicVowel(char: string): boolean {
 }
 
 /**
- * code가 한글 겹모음인지 확인합니다.
+ * code가 한글 겹모음(ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ)인지 확인합니다.
  * @param code
  */
 export function isComplexVowelCode(code: number): boolean {
@@ -156,7 +213,7 @@ export function isComplexVowelCode(code: number): boolean {
 }
 
 /**
- * char이 한글 겹모음인지 확인합니다.
+ * char이 한글 겹모음(ㅘ, ㅙ, ㅚ, ㅝ, ㅞ, ㅟ, ㅢ)인지 확인합니다.
  * @param char
  */
 export function isComplexVowel(char: string): boolean {

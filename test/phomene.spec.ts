@@ -19,6 +19,26 @@ describe('module:phomene', (): void => {
         it('should return null when charA = "ㅗ" and charB = "ㅓ"', (): void => assert.equal(phoneme.assembleVowels('ㅗ', 'ㅓ'), null));
         it('should return null when charA = "A" and charB = "ㅓ"', (): void => assert.equal(phoneme.assembleVowels('A', 'ㅏ'), null));
     });
+    describe('disassembleConsonant()', (): void => {
+        it('should return null when charA = "ㄱ"', (): void => assert.equal(phoneme.disassembleConsonant('ㄱ'), null));
+        it('should return null when charA = "ㄲ"', (): void => assert.equal(phoneme.disassembleConsonant('ㄲ'), null));
+        it('should return ["ㄱ", "ㅅ"] when charA = "ㄳ"', (): void => assert.deepEqual(phoneme.disassembleConsonant('ㄳ'), ['ㄱ', 'ㅅ']));
+        it('should return null when char = "ㅏ"', (): void => assert.equal(phoneme.disassembleConsonant('ㅏ'), null));
+        it('should return null when char = "ㅢ"', (): void => assert.equal(phoneme.disassembleConsonant('ㅢ'), null));
+        it('should return null when char = "가"', (): void => assert.equal(phoneme.disassembleConsonant('가'), null));
+        it('should return null when char = "1"', (): void => assert.equal(phoneme.disassembleConsonant('1'), null));
+        it('should return null when char = "A"', (): void => assert.equal(phoneme.disassembleConsonant('A'), null));
+    });
+    describe('disassembleVowel()', (): void => {
+        it('should return null when charA = "ㄱ"', (): void => assert.equal(phoneme.disassembleVowel('ㄱ'), null));
+        it('should return null when charA = "ㄲ"', (): void => assert.equal(phoneme.disassembleVowel('ㄲ'), null));
+        it('should return null when charA = "ㄳ"', (): void => assert.equal(phoneme.disassembleVowel('ㄳ'), null));
+        it('should return null when char = "ㅏ"', (): void => assert.equal(phoneme.disassembleVowel('ㅏ'), null));
+        it('should return ["ㅡ", "ㅣ"] when char = "ㅢ"', (): void => assert.deepEqual(phoneme.disassembleVowel('ㅢ'), ['ㅡ', 'ㅣ']));
+        it('should return null when char = "가"', (): void => assert.equal(phoneme.disassembleVowel('가'), null));
+        it('should return null when char = "1"', (): void => assert.equal(phoneme.disassembleVowel('1'), null));
+        it('should return null when char = "A"', (): void => assert.equal(phoneme.disassembleVowel('A'), null));
+    });
     describe('isConsonant()', (): void => {
         it('should return true when char = "ㄱ"', (): void => assert(phoneme.isConsonant('ㄱ')));
         it('should return true when char = "ㄲ"', (): void => assert(phoneme.isConsonant('ㄲ')));
