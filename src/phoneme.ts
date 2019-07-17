@@ -1,4 +1,61 @@
 /**
+ * codeA와 codeB를 합쳐 겹자음으로 만듭니다.
+ * @param codeA
+ * @param codeB
+ */
+export function assembleConsonantCodes(codeA: number, codeB: number): number {
+    return ([
+        [12593, 12613, 12595],
+        [12596, 12616, 12597],
+        [12601, 12593, 12602],
+        [12601, 12609, 12603],
+        [12601, 12610, 12604],
+        [12601, 12613, 12605],
+        [12601, 12620, 12606],
+        [12601, 12621, 12607],
+        [12601, 12622, 12608],
+        [12610, 12613, 12612],
+    ].find(([a, b]) => codeA === a && codeB === b) || [])[2] || 0;
+}
+
+/**
+ * charA와 charB를 합쳐 겹자음으로 만듭니다.
+ * @param charA
+ * @param charB
+ */
+export function assembleConsonants(charA: string, charB: string): string | null {
+    const code = assembleConsonantCodes(charA.charCodeAt(0), charB.charCodeAt(0));
+    return code ? String.fromCharCode(code) : null;
+}
+
+/**
+ * codeA와 codeB를 합쳐 겹모음으로 만듭니다.
+ * @param codeA
+ * @param codeB
+ */
+export function assembleVowelCodes(codeA: number, codeB: number): number {
+    return ([
+        [12631, 12623, 12632],
+        [12631, 12624, 12633],
+        [12631, 12643, 12634],
+        [12636, 12627, 12637],
+        [12636, 12628, 12638],
+        [12636, 12643, 12639],
+        [12641, 12643, 12642],
+    ].find(([a, b]) => codeA === a && codeB === b) || [])[2] || 0;
+}
+
+/**
+ * charA와 charB를 합쳐 겹모음으로 만듭니다.
+ * @param charA
+ * @param charB
+ */
+export function assembleVowels(charA: string, charB: string): string | null {
+    const code = assembleVowelCodes(charA.charCodeAt(0), charB.charCodeAt(0));
+    return code ? String.fromCharCode(code) : null;
+}
+
+/**
  * code가 한글 자음인지 확인합니다.
  * @param code
  */
@@ -160,61 +217,4 @@ export function isJongseongCode(code: number): boolean {
  */
 export function isJongseong(char: string): boolean {
     return isJongseongCode(char.charCodeAt(0));
-}
-
-/**
- * codeA와 codeB를 합쳐 겹자음으로 만듭니다.
- * @param codeA
- * @param codeB
- */
-export function assembleConsonantCodes(codeA: number, codeB: number): number {
-    return ([
-        [12593, 12613, 12595],
-        [12596, 12616, 12597],
-        [12601, 12593, 12602],
-        [12601, 12609, 12603],
-        [12601, 12610, 12604],
-        [12601, 12613, 12605],
-        [12601, 12620, 12606],
-        [12601, 12621, 12607],
-        [12601, 12622, 12608],
-        [12610, 12613, 12612],
-    ].find(([a, b]) => codeA === a && codeB === b) || [])[2] || 0;
-}
-
-/**
- * charA와 charB를 합쳐 겹자음으로 만듭니다.
- * @param charA
- * @param charB
- */
-export function assembleConsonants(charA: string, charB: string): string | null {
-    const code = assembleConsonantCodes(charA.charCodeAt(0), charB.charCodeAt(0));
-    return code ? String.fromCharCode(code) : null;
-}
-
-/**
- * codeA와 codeB를 합쳐 겹모음으로 만듭니다.
- * @param codeA
- * @param codeB
- */
-export function assembleVowelCodes(codeA: number, codeB: number): number {
-    return ([
-        [12631, 12623, 12632],
-        [12631, 12624, 12633],
-        [12631, 12643, 12634],
-        [12636, 12627, 12637],
-        [12636, 12628, 12638],
-        [12636, 12643, 12639],
-        [12641, 12643, 12642],
-    ].find(([a, b]) => codeA === a && codeB === b) || [])[2] || 0;
-}
-
-/**
- * charA와 charB를 합쳐 겹모음으로 만듭니다.
- * @param charA
- * @param charB
- */
-export function assembleVowels(charA: string, charB: string): string | null {
-    const code = assembleVowelCodes(charA.charCodeAt(0), charB.charCodeAt(0));
-    return code ? String.fromCharCode(code) : null;
 }
