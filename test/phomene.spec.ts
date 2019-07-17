@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import * as phoneme from '../src/phoneme';
+import * as phoneme from '../src';
 
 describe('module:phomene', (): void => {
     describe('assembleConsonants()', (): void => {

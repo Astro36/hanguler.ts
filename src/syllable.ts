@@ -1,21 +1,22 @@
+export type HangulCodeRecipe = [number, number, number] | [number, number];
+export type HangulRecipe = [string, string, string] | [string, string];
+
 /**
  * 음운을 조합하여 반환합니다.
- * @param codeCho
- * @param codeJung
- * @param codeJong
+ * @param HangulRecipe
  */
-export function assembleCode(codeCho: number, codeJung: number, codeJong?: number): number {
+export function assembleHangulCodes(recipe: HangulCodeRecipe): number {
     const indexCho = [
         0, 1, 3, 6, 7, 8, 16, 17, 18, 20,
         21, 22, 23, 24, 25, 26, 27, 28, 29,
-    ].indexOf(codeCho - 12593);
-    const indexJung = codeJung - 12623;
-    if (codeJong) {
+    ].indexOf(recipe[0] - 12593);
+    const indexJung = recipe[1] - 12623;
+    if (recipe[2]) {
         const indexJong = [
             0, 1, 2, 3, 4, 5, 6, 8, 9, 10,
             11, 12, 13, 14, 15, 16, 17, 19, 20, 21,
             22, 23, 25, 26, 27, 28, 29,
-        ].indexOf(codeJong - 12593) + 1;
+        ].indexOf(recipe[2] - 12593) + 1;
         if (indexCho >= 0 && indexJung >= 0 && indexJong >= 0) {
             return 44032 + (indexCho * 588) + (indexJung * 28) + indexJong;
         }
@@ -27,18 +28,20 @@ export function assembleCode(codeCho: number, codeJung: number, codeJong?: numbe
 
 /**
  * 음운을 조합하여 반환합니다.
- * @param cho
- * @param jung
- * @param jong
+ * @param HangulRecipe
  */
-export function assemble(cho: string, jung: string, jong?: string): string | null {
-    const code = jong
-        ? assembleCode(cho.charCodeAt(0), jung.charCodeAt(0), jong.charCodeAt(0))
-        : assembleCode(cho.charCodeAt(0), jung.charCodeAt(0));
+export function assembleHanguls(recipe: HangulRecipe): string | null {
+    const code = assembleHangulCodes(
+        recipe.map((char): number => char.charCodeAt(0)) as HangulCodeRecipe,
+    );
     return code ? String.fromCharCode(code) : null;
 }
 
-export function disassembleCode(code: number): [number, number, number] | [number, number] | 0 {
+/**
+ * 음절을 분해하여 반환합니다.
+ * @param code
+ */
+export function disassembleHangulCode(code: number): HangulCodeRecipe | 0 {
     if (code >= 44032 && code <= 55203) {
         const hangul = code - 44032;
         const indexCho = [
@@ -47,9 +50,9 @@ export function disassembleCode(code: number): [number, number, number] | [numbe
         ][Math.floor(Math.floor(hangul / 28) / 21)];
         const indexJung = Math.floor(hangul / 28) % 21;
         const indexJong = [
-            -1, 0, 1, 2, 3, 4, 5, 6, 8, 9, 10,
-            11, 12, 13, 14, 15, 16, 17, 19, 20, 21,
-            22, 23, 25, 26, 27, 28, 29,
+            -1, 0, 1, 2, 3, 4, 5, 6, 8, 9,
+            10, 11, 12, 13, 14, 15, 16, 17, 19, 20,
+            21, 22, 23, 25, 26, 27, 28, 29,
         ][hangul % 28];
         if (indexJong >= 0) {
             return [indexCho + 12593, indexJung + 12623, indexJong + 12593];
@@ -59,20 +62,32 @@ export function disassembleCode(code: number): [number, number, number] | [numbe
     return 0;
 }
 
-
-export function disassemble(char: string): [string, string, string] | [string, string] | null {
-    const codes = disassembleCode(char.charCodeAt(0));
+/**
+ * 음절을 분해하여 반환합니다.
+ * @param char
+ */
+export function disassembleHangul(char: string): HangulRecipe | null {
+    const codes = disassembleHangulCode(char.charCodeAt(0));
     if (codes) {
-        if (codes[2]) {
-            return [
-                String.fromCharCode(codes[0]),
-                String.fromCharCode(codes[1]),
-                String.fromCharCode(codes[2]),
-            ];
-        }
-        return [String.fromCharCode(codes[0]), String.fromCharCode(codes[1])];
+        return codes.map((code): string => String.fromCharCode(code)) as HangulRecipe;
     }
     return null;
+}
+
+/**
+ * code에 받침이 있는지 확인합니다.
+ * @param code
+ */
+export function endsWithConsonantCode(code: number): boolean {
+    return code >= 44032 && code <= 55203 && (code - 44032) % 28 > 0;
+}
+
+/**
+ * char에 받침이 있는지 확인합니다.
+ * @param char
+ */
+export function endsWithConsonant(char: string): boolean {
+    return endsWithConsonantCode(char.charCodeAt(0));
 }
 
 /**
