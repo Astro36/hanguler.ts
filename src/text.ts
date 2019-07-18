@@ -130,6 +130,7 @@ export function flatDisassemble(text: string): string[] {
     return disassemble(text).flat();
 }
 
+/** @ignore */
 function flatPhoneme(chars: Char[]): Char[] {
     return chars.map((char): Char[] => {
         if (phoneme.isComplexConsonant(char)) {

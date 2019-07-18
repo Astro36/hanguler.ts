@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>hanguler | hanguler</title>
+	<title>&quot;types&quot; | hanguler</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -879,7 +879,7 @@ img { max-width: 100%; }
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="index.html">hanguler</a></strong>
+					<strong><a href="../index.html">hanguler</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -909,96 +909,79 @@ img { max-width: 100%; }
 </header>
 <nav class="tsd-navigation secondary">
 	<ul>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+			<a href="_types_.html#char" class="tsd-kind-icon">Char</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+			<a href="_types_.html#charcode" class="tsd-kind-icon">Char<wbr>Code</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+			<a href="_types_.html#hangulcoderecipe" class="tsd-kind-icon">Hangul<wbr>Code<wbr>Recipe</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module">
+			<a href="_types_.html#hangulrecipe" class="tsd-kind-icon">Hangul<wbr>Recipe</a>
+		</li>
 	</ul>
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<div class="tsd-panel tsd-typography">
-			<h1 id="hanguler">Hanguler</h1>
-			<blockquote>
-				<p>Simple Hangul Manipulating Library</p>
-			</blockquote>
-			<p><a href="https://www.npmjs.com/package/hanguler"><img src="https://img.shields.io/npm/v/hanguler.svg?style=flat-square" alt="npm"></a> <a href="https://www.npmjs.com/package/hanguler"><img src="https://img.shields.io/npm/dt/hanguler.svg?style=flat-square" alt="npm"></a></p>
-			<h2 id="changelog">ChangeLog</h2>
-			<p>See <a href="./CHANGELOG.md">CHANGELOG</a></p>
-			<h2 id="features">Features</h2>
-			<p>See <a href="https://astro36.github.io/hanguler.ts/">API</a></p>
-			<h2 id="installation">Installation</h2>
-			<ul>
-				<li>Install with npm:</li>
-			</ul>
-			<pre><code class="language-bash">npm install hanguler --save</code></pre>
-			<ul>
-				<li>Clone the repo:</li>
-			</ul>
-			<pre><code class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/Astro36/hanguler.ts.git</code></pre>
-			<h2 id="usage">Usage</h2>
-			<h3 id="api-documentation">API Documentation</h3>
-			<p>See <a href="https://astro36.github.io/hanguler.ts/">API</a></p>
-			<h3 id="example">Example</h3>
-			<p>예사소리를 된소리로 바꿔줍니다:</p>
-			<pre><code class="language-javascript"><span class="hljs-keyword">const</span> Hanguler = <span class="hljs-built_in">require</span>(<span class="hljs-string">'hanguler'</span>);
-
-<span class="hljs-keyword">const</span> stronger = <span class="hljs-function">(<span class="hljs-params">str</span>) =&gt;</span> {
-  <span class="hljs-keyword">switch</span> (str) {
-    <span class="hljs-keyword">case</span> <span class="hljs-string">'ㄱ'</span>:
-      <span class="hljs-keyword">return</span> <span class="hljs-string">'ㄲ'</span>;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">'ㄷ'</span>:
-      <span class="hljs-keyword">return</span> <span class="hljs-string">'ㄸ'</span>;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">'ㅂ'</span>:
-      <span class="hljs-keyword">return</span> <span class="hljs-string">'ㅃ'</span>;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">'ㅅ'</span>:
-      <span class="hljs-keyword">return</span> <span class="hljs-string">'ㅆ'</span>;
-    <span class="hljs-keyword">case</span> <span class="hljs-string">'ㅈ'</span>:
-      <span class="hljs-keyword">return</span> <span class="hljs-string">'ㅉ'</span>;
-    <span class="hljs-keyword">default</span>:
-      <span class="hljs-keyword">return</span> str;
-  }
-};
-
-<span class="hljs-keyword">const</span> input = <span class="hljs-string">'쉬프트키가 안 빠져요ㅠㅠ'</span>;
-<span class="hljs-keyword">const</span> output = Hanguler.flatAssemble(Hanguler.flatDisassemble(input).map(stronger));
-
-<span class="hljs-built_in">console</span>.log(output); <span class="hljs-comment">// 쒸프트키까 안 빠쪄요ㅠㅠ</span></code></pre>
-			<h2 id="license">License</h2>
-			<pre><code class="language-text">Copyright (c) 2019 Seungjae Park
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the &quot;Software&quot;), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</code></pre>
-			<p>Hanguler is licensed under the <a href="./LICENSE">MIT License</a>.</p>
-		</div>
-		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
 				<div class="tsd-index-content">
 					<section class="tsd-index-section ">
-						<h3>External modules</h3>
+						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-external-module"><a href="modules/_index_.html" class="tsd-kind-icon">"index"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_phoneme_.html" class="tsd-kind-icon">"phoneme"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_syllable_.html" class="tsd-kind-icon">"syllable"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_text_.html" class="tsd-kind-icon">"text"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_types_.html" class="tsd-kind-icon">"types"</a></li>
-							<li class="tsd-kind-external-module"><a href="modules/_utils_.html" class="tsd-kind-icon">"utils"</a></li>
+							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#char" class="tsd-kind-icon">Char</a></li>
+							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#charcode" class="tsd-kind-icon">Char<wbr>Code</a></li>
+							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#hangulcoderecipe" class="tsd-kind-icon">Hangul<wbr>Code<wbr>Recipe</a></li>
+							<li class="tsd-kind-type-alias tsd-parent-kind-external-module"><a href="_types_.html#hangulrecipe" class="tsd-kind-icon">Hangul<wbr>Recipe</a></li>
 						</ul>
 					</section>
 				</div>
+			</section>
+		</section>
+		<section class="tsd-panel-group tsd-member-group ">
+			<h2>Type aliases</h2>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+				<a name="char" class="tsd-anchor"></a>
+				<h3>Char</h3>
+				<div class="tsd-signature tsd-kind-icon">Char<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/Astro36/hanguler/blob/13fd82c/src/types.ts#L1">types.ts:1</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+				<a name="charcode" class="tsd-anchor"></a>
+				<h3>Char<wbr>Code</h3>
+				<div class="tsd-signature tsd-kind-icon">Char<wbr>Code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/Astro36/hanguler/blob/13fd82c/src/types.ts#L2">types.ts:2</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+				<a name="hangulcoderecipe" class="tsd-anchor"></a>
+				<h3>Hangul<wbr>Code<wbr>Recipe</h3>
+				<div class="tsd-signature tsd-kind-icon">Hangul<wbr>Code<wbr>Recipe<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="_types_.html#charcode" class="tsd-signature-type">CharCode</a><span class="tsd-signature-symbol">, </span><a href="_types_.html#charcode" class="tsd-signature-type">CharCode</a><span class="tsd-signature-symbol">, </span><a href="_types_.html#charcode" class="tsd-signature-type">CharCode</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><a href="_types_.html#charcode" class="tsd-signature-type">CharCode</a><span class="tsd-signature-symbol">, </span><a href="_types_.html#charcode" class="tsd-signature-type">CharCode</a><span class="tsd-signature-symbol">]</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/Astro36/hanguler/blob/13fd82c/src/types.ts#L4">types.ts:4</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-external-module">
+				<a name="hangulrecipe" class="tsd-anchor"></a>
+				<h3>Hangul<wbr>Recipe</h3>
+				<div class="tsd-signature tsd-kind-icon">Hangul<wbr>Recipe<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><a href="_types_.html#char" class="tsd-signature-type">Char</a><span class="tsd-signature-symbol">, </span><a href="_types_.html#char" class="tsd-signature-type">Char</a><span class="tsd-signature-symbol">, </span><a href="_types_.html#char" class="tsd-signature-type">Char</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">[</span><a href="_types_.html#char" class="tsd-signature-type">Char</a><span class="tsd-signature-symbol">, </span><a href="_types_.html#char" class="tsd-signature-type">Char</a><span class="tsd-signature-symbol">]</span></div>
+				<aside class="tsd-sources">
+					<ul>
+						<li>Defined in <a href="https://github.com/Astro36/hanguler/blob/13fd82c/src/types.ts#L3">types.ts:3</a></li>
+					</ul>
+				</aside>
 			</section>
 		</section>
 		<footer class="with-border-bottom">
