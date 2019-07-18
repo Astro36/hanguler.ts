@@ -4,15 +4,13 @@
 
 [![npm](https://img.shields.io/npm/v/hanguler.svg?style=flat-square)](https://www.npmjs.com/package/hanguler) [![npm](https://img.shields.io/npm/dt/hanguler.svg?style=flat-square)](https://www.npmjs.com/package/hanguler)
 
-**Hanguler는 [Jaemin Jo](https://github.com/e-)님의 [Hangul.js](https://github.com/e-/Hangul.js)에서 파생하여 제작되었습니다.**
-
 ## ChangeLog
 
 See [CHANGELOG](./CHANGELOG.md)
 
 ## Features
 
-See [API](https://astro36.github.io/Hanguler/index.html)
+See [API](https://astro36.github.io/hanguler.ts/)
 
 ## Installation
 
@@ -25,14 +23,14 @@ npm install hanguler --save
 - Clone the repo:
 
 ```bash
-git clone https://github.com/Astro36/Hanguler.git
+git clone https://github.com/Astro36/hanguler.ts.git
 ```
 
 ## Usage
 
 ### API Documentation
 
-See [API](https://astro36.github.io/Hanguler/index.html)
+See [API](https://astro36.github.io/hanguler.ts/)
 
 ### Example
 
@@ -89,5 +87,3 @@ SOFTWARE.
 ```
 
 Hanguler is licensed under the [MIT License](./LICENSE).
-
-[Hangul.js](https://github.com/e-/Hangul.js) is licensed under a [MIT License](https://github.com/e-/Hangul.js/blob/master/LICENSE) by Jaemin Jo.
