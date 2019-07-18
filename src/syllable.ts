@@ -1,11 +1,15 @@
-export type HangulCodeRecipe = [number, number, number] | [number, number];
-export type HangulRecipe = [string, string, string] | [string, string];
+import {
+    Char, CharCode, HangulRecipe, HangulCodeRecipe,
+} from './types';
+import {
+    toChar, toCharArray, toCharCode, toCharCodeArray,
+} from './utils';
 
 /**
  * 음운을 조합하여 반환합니다.
  * @param HangulRecipe
  */
-export function assembleHangulCodes(recipe: HangulCodeRecipe): number {
+export function assembleHangulCodes(recipe: HangulCodeRecipe): CharCode {
     const indexCho = [
         0, 1, 3, 6, 7, 8, 16, 17, 18, 20,
         21, 22, 23, 24, 25, 26, 27, 28, 29,
@@ -30,18 +34,16 @@ export function assembleHangulCodes(recipe: HangulCodeRecipe): number {
  * 음운을 조합하여 반환합니다.
  * @param HangulRecipe
  */
-export function assembleHanguls(recipe: HangulRecipe): string | null {
-    const code = assembleHangulCodes(
-        recipe.map((char): number => char.charCodeAt(0)) as HangulCodeRecipe,
-    );
-    return code ? String.fromCharCode(code) : null;
+export function assembleHanguls(recipe: HangulRecipe): Char | null {
+    const code = assembleHangulCodes(toCharCodeArray(recipe) as HangulCodeRecipe);
+    return code ? toChar(code) : null;
 }
 
 /**
  * 음절을 분해하여 반환합니다.
  * @param code
  */
-export function disassembleHangulCode(code: number): HangulCodeRecipe | 0 {
+export function disassembleHangulCode(code: CharCode): HangulCodeRecipe | 0 {
     if (code >= 44032 && code <= 55203) {
         const hangul = code - 44032;
         const indexCho = [
@@ -66,10 +68,10 @@ export function disassembleHangulCode(code: number): HangulCodeRecipe | 0 {
  * 음절을 분해하여 반환합니다.
  * @param char
  */
-export function disassembleHangul(char: string): HangulRecipe | null {
-    const codes = disassembleHangulCode(char.charCodeAt(0));
+export function disassembleHangul(char: Char): HangulRecipe | null {
+    const codes = disassembleHangulCode(toCharCode(char));
     if (codes) {
-        return codes.map((code): string => String.fromCharCode(code)) as HangulRecipe;
+        return toCharArray(codes) as HangulRecipe;
     }
     return null;
 }
@@ -78,7 +80,7 @@ export function disassembleHangul(char: string): HangulRecipe | null {
  * code에 받침이 있는지 확인합니다.
  * @param code
  */
-export function endsWithConsonantCode(code: number): boolean {
+export function endsWithConsonantCode(code: CharCode): boolean {
     return code >= 44032 && code <= 55203 && (code - 44032) % 28 > 0;
 }
 
@@ -86,15 +88,15 @@ export function endsWithConsonantCode(code: number): boolean {
  * char에 받침이 있는지 확인합니다.
  * @param char
  */
-export function endsWithConsonant(char: string): boolean {
-    return endsWithConsonantCode(char.charCodeAt(0));
+export function endsWithConsonant(char: Char): boolean {
+    return endsWithConsonantCode(toCharCode(char));
 }
 
 /**
  * code가 한글인지 확인합니다.
  * @param code
  */
-export function isHangulCode(code: number): boolean {
+export function isHangulCode(code: CharCode): boolean {
     return (code >= 12593 && code <= 12643)
         || (code >= 44032 && code <= 55203);
 }
@@ -103,15 +105,15 @@ export function isHangulCode(code: number): boolean {
  * char이 한글인지 확인합니다.
  * @param char
  */
-export function isHangul(char: string): boolean {
-    return isHangulCode(char.charCodeAt(0));
+export function isHangul(char: Char): boolean {
+    return isHangulCode(toCharCode(char));
 }
 
 /**
  * code가 완전한 한글인지 확인합니다.
  * @param code
  */
-export function isCompleteHangulCode(code: number): boolean {
+export function isCompleteHangulCode(code: CharCode): boolean {
     return code >= 44032 && code <= 55203;
 }
 
@@ -119,6 +121,6 @@ export function isCompleteHangulCode(code: number): boolean {
  * char이 완전한 한글인지 확인합니다.
  * @param char
  */
-export function isCompleteHangul(char: string): boolean {
-    return isCompleteHangulCode(char.charCodeAt(0));
+export function isCompleteHangul(char: Char): boolean {
+    return isCompleteHangulCode(toCharCode(char));
 }

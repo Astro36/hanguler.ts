@@ -3,7 +3,7 @@ import assert from 'assert';
 import * as syllable from '../src';
 
 describe('module:syllable', (): void => {
-    describe('assembleHangul()', (): void => {
+    describe('assembleHanguls()', (): void => {
         it('should return "가" when cho = "ㄱ" and jung = "ㅏ"', (): void => assert.equal(syllable.assembleHanguls(['ㄱ', 'ㅏ']), '가'));
         it('should return null when cho = "ㅄ" and jung = "ㅏ"', (): void => assert.equal(syllable.assembleHanguls(['ㅄ', 'ㅏ']), null));
         it('should return "뙇" when cho = "ㄸ" and jung = "ㅘ" and jong = "ㅎ"', (): void => assert.equal(syllable.assembleHanguls(['ㄸ', 'ㅘ', 'ㅎ']), '뙇'));
