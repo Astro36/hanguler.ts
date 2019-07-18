@@ -1,14 +1,15 @@
 import assert from 'assert';
 
-import * as syllable from '../src';
+import * as syllable from '../src/syllable';
 
 describe('module:syllable', (): void => {
     describe('assembleHanguls()', (): void => {
-        it('should return "가" when cho = "ㄱ" and jung = "ㅏ"', (): void => assert.equal(syllable.assembleHanguls(['ㄱ', 'ㅏ']), '가'));
-        it('should return null when cho = "ㅄ" and jung = "ㅏ"', (): void => assert.equal(syllable.assembleHanguls(['ㅄ', 'ㅏ']), null));
-        it('should return "뙇" when cho = "ㄸ" and jung = "ㅘ" and jong = "ㅎ"', (): void => assert.equal(syllable.assembleHanguls(['ㄸ', 'ㅘ', 'ㅎ']), '뙇'));
-        it('should return null when cho = "ㄴ" and jung = "ㅇ" and jong = "ㄱ"', (): void => assert.equal(syllable.assembleHanguls(['ㄴ', 'ㅇ', 'ㄱ']), null));
-        it('should return null when cho = "ㅎ" and jung = "ㅣ" and jong = "ㅎ"', (): void => assert.equal(syllable.assembleHanguls(['ㅗ', 'ㅜ', 'ㅑ']), null));
+        it('should return "가" when recipe = ["ㄱ", "ㅏ"]', (): void => assert.equal(syllable.assembleHanguls(['ㄱ', 'ㅏ']), '가'));
+        it('should return null when recipe = ["ㅄ", "ㅏ"]', (): void => assert.equal(syllable.assembleHanguls(['ㅄ', 'ㅏ']), null));
+        it('should return "뙇" when recipe = ["ㄸ", "ㅘ", "ㅎ"]', (): void => assert.equal(syllable.assembleHanguls(['ㄸ', 'ㅘ', 'ㅎ']), '뙇'));
+        it('should return null when recipe = ["ㄱ", "ㅏ", "ㄸ"]', (): void => assert.equal(syllable.assembleHanguls(['ㄱ', 'ㅏ', 'ㄸ']), null));
+        it('should return null when recipe = ["ㄴ", "ㅇ", "ㄱ"]', (): void => assert.equal(syllable.assembleHanguls(['ㄴ', 'ㅇ', 'ㄱ']), null));
+        it('should return null when recipe = ["ㅗ", "ㅜ", "ㅑ"]', (): void => assert.equal(syllable.assembleHanguls(['ㅗ', 'ㅜ', 'ㅑ']), null));
     });
     describe('disassembleHangul()', (): void => {
         it('should return ["ㄱ", "ㅏ"] when char = "가"', (): void => assert.deepEqual(syllable.disassembleHangul('가'), ['ㄱ', 'ㅏ']));

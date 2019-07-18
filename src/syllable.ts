@@ -20,9 +20,9 @@ export function assembleHangulCodes(recipe: HangulCodeRecipe): CharCode {
             0, 1, 2, 3, 4, 5, 6, 8, 9, 10,
             11, 12, 13, 14, 15, 16, 17, 19, 20, 21,
             22, 23, 25, 26, 27, 28, 29,
-        ].indexOf(recipe[2] - 12593) + 1;
+        ].indexOf(recipe[2] - 12593);
         if (indexCho >= 0 && indexJung >= 0 && indexJong >= 0) {
-            return 44032 + (indexCho * 588) + (indexJung * 28) + indexJong;
+            return 44032 + (indexCho * 588) + (indexJung * 28) + indexJong + 1;
         }
     } else if (indexCho >= 0 && indexJung >= 0) {
         return 44032 + (indexCho * 588) + (indexJung * 28);

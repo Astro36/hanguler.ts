@@ -70,12 +70,16 @@ export function flatAssembleCodes(codes: CharCode[]): CharCode[] {
             if (assembled) {
                 refined.push(assembled);
                 i += 1;
+            } else {
+                refined.push(code0);
             }
         } else if (phoneme.isBasicVowelCode(code0) && phoneme.isBasicVowelCode(code1)) {
             const assembled = phoneme.assembleVowelCodes(code0, code1);
             if (assembled) {
                 refined.push(assembled);
                 i += 1;
+            } else {
+                refined.push(code0);
             }
         } else {
             refined.push(code0);
@@ -88,7 +92,7 @@ export function flatAssembleCodes(codes: CharCode[]): CharCode[] {
         const code2 = refined[i + 2];
         const code3 = refined[i + 3];
         if (phoneme.isChoseongCode(code0) && phoneme.isJungseongCode(code1)) {
-            if (phoneme.isJongseongCode(code2) && (phoneme.isConsonantCode(code3) || !code3)) {
+            if (phoneme.isJongseongCode(code2) && !phoneme.isVowelCode(code3)) {
                 recipes.push([code0, code1, code2]);
                 i += 2;
             } else {

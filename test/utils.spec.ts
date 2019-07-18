@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import * as utils from '../src';
+import * as utils from '../src/utils';
 
 describe('module:utils', (): void => {
     describe('toChar()', (): void => {
@@ -17,6 +17,6 @@ describe('module:utils', (): void => {
         it('should return 65 when char = "A"', (): void => assert.equal(utils.toCharCode('A'), 65));
     });
     describe('toCharCodeArray()', (): void => {
-        it('should return [12593, 49, 65] when char = ["ㄱ", "1", "A"]', (): void => assert.deepEqual(utils.toCharCodeArray(['ㄱ', '1', 'A']), [12593, 49, 65]));
+        it('should return [12593, 49, 65] when chars = ["ㄱ", "1", "A"]', (): void => assert.deepEqual(utils.toCharCodeArray(['ㄱ', '1', 'A']), [12593, 49, 65]));
     });
 });
