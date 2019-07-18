@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@types/mocha": "^5.2.7",
-    "@types/node": "^12.6.2",
+    "@types/node": "^12.6.8",
     "@typescript-eslint/eslint-plugin": "^1.12.0",
     "@typescript-eslint/parser": "^1.12.0",
     "eslint": "^6.0.1",
@@ -23,23 +23,24 @@
     "eslint-plugin-import": "^2.18.0",
     "mocha": "^6.1.4",
     "ts-node": "^8.3.0",
+    "typedoc": "^0.14.2",
     "typescript": "^3.5.3"
   },
   "scripts": {
     "build": "tsc",
-    "docs": "tsdoc src/main.ts -d docs",
+    "docs": "typedoc src --out docs --theme minimal",
     "lint": "eslint src test --ext .js,.ts",
     "lint:fix": "eslint src test --ext .js,.ts --fix",
     "test": "mocha --require ts-node/register test/**/*.{ts,tsx}"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Astro36/hanguler"
+    "url": "git+https://github.com/Astro36/hanguler.ts"
   },
   "author": "Seungjae Park <astro.psj@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Astro36/hanguler/issues"
+    "url": "https://github.com/Astro36/hanguler.ts/issues"
   },
-  "homepage": "https://github.com/Astro36/hanguler#readme"
+  "homepage": "https://github.com/Astro36/hanguler.ts#readme"
 }
