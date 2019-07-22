@@ -10,7 +10,7 @@ See [CHANGELOG](./CHANGELOG.md)
 
 ## Features
 
-See [API](https://astro36.github.io/hanguler.ts/)
+See [API](https://astro36.github.io/hanguler.ts/index.html)
 
 ## Installation
 
@@ -30,7 +30,7 @@ git clone https://github.com/Astro36/hanguler.ts.git
 
 ### API Documentation
 
-See [API](https://astro36.github.io/hanguler.ts/)
+See [API](https://astro36.github.io/hanguler.ts/index.html)
 
 ### Example
 
