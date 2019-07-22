@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.2.0
+
+Released Jul 22, 2019
+
+### Changed
+
+- Migrate to TypeScript
+
 ## v0.1.2
 
 Released Nov 17, 2018
