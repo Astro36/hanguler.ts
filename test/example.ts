@@ -3,8 +3,22 @@ import assert from 'assert';
 import * as Hanguler from '../src';
 
 describe('Hanguler Example', (): void => {
-  describe('라이브러리 예제', () => {
-    it('음운을 조합하여 반환합니다.', () => {
+  describe('음운 조합/분해 예제', () => {
+    it('아무튼 주작임', () => {
+      const input = [
+        ['ㅇ', 'ㅏ'],
+        ['ㅁ', 'ㅜ'],
+        ['ㅌ', 'ㅡ', 'ㄴ'],
+        ' ',
+        ['ㅈ', 'ㅜ'],
+        ['ㅈ', 'ㅏ', 'ㄱ'],
+        ['ㅇ', 'ㅣ', 'ㅁ'],
+      ] as Hanguler.Recipe[];
+      const output = '아무튼 주작임';
+      assert.equal(Hanguler.assemble(input), output);
+    });
+
+    it('비둘기야 먹자999', () => {
       const input = [
         ['ㅂ', 'ㅣ'],
         ['ㄷ', 'ㅜ', 'ㄹ'],
@@ -16,12 +30,12 @@ describe('Hanguler Example', (): void => {
         '9',
         '9',
         '9',
-      ];
+      ] as Hanguler.Recipe[];
       const output = '비둘기야 먹자999';
-      assert.equal(Hanguler.assemble(input as Hanguler.Recipe[]), output);
+      assert.equal(Hanguler.assemble(input), output);
     });
 
-    it('음절을 분해하여 반환합니다.', () => {
+    it('빵상 깨랑까랑', () => {
       const input = '빵상 깨랑까랑';
       const output = [
         ['ㅃ', 'ㅏ', 'ㅇ'],
@@ -35,7 +49,15 @@ describe('Hanguler Example', (): void => {
       assert.deepEqual(Hanguler.disassemble(input), output);
     });
 
-    it('음운을 조합하여 반환합니다.', () => {
+    it('이 시국에?', () => {
+      const input = [
+        'ㅇ', 'ㅣ', ' ', 'ㅅ', 'ㅣ', 'ㄱ', 'ㅜ', 'ㄱ', 'ㅇ', 'ㅔ', '?'
+      ];
+      const output = '이 시국에?';
+      assert.equal(Hanguler.flatAssemble(input), output);
+    });
+
+    it('마법의 소라고동', () => {
       const input = [
         'ㅁ', 'ㅏ', 'ㅂ', 'ㅓ', 'ㅂ', 'ㅇ', 'ㅡ', 'ㅣ', ' ',
         'ㅅ', 'ㅗ', 'ㄹ', 'ㅏ', 'ㄱ', 'ㅗ', 'ㄷ', 'ㅗ', 'ㅇ',
@@ -44,9 +66,10 @@ describe('Hanguler Example', (): void => {
       assert.equal(Hanguler.flatAssemble(input), output);
     });
 
-    it('음절을 분해하여 반환합니다.', () => {
+    it('너 때문에 흥이 다 깨져버렸으니까 책임져', () => {
       const input = '너 때문에 흥이 다 깨져버렸으니까 책임져';
-      const output = ['ㄴ', 'ㅓ', ' ', 'ㄸ', 'ㅐ', 'ㅁ', 'ㅜ', 'ㄴ', 'ㅇ', 'ㅔ', ' ',
+      const output = [
+        'ㄴ', 'ㅓ', ' ', 'ㄸ', 'ㅐ', 'ㅁ', 'ㅜ', 'ㄴ', 'ㅇ', 'ㅔ', ' ',
         'ㅎ', 'ㅡ', 'ㅇ', 'ㅇ', 'ㅣ', ' ', 'ㄷ', 'ㅏ', ' ',
         'ㄲ', 'ㅐ', 'ㅈ', 'ㅕ', 'ㅂ', 'ㅓ', 'ㄹ', 'ㅕ', 'ㅆ', 'ㅇ', 'ㅡ', 'ㄴ', 'ㅣ', 'ㄲ', 'ㅏ', ' ',
         'ㅊ', 'ㅐ', 'ㄱ', 'ㅇ', 'ㅣ', 'ㅁ', 'ㅈ', 'ㅕ',
