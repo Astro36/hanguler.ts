@@ -51,7 +51,7 @@ describe('Hanguler Example', (): void => {
 
     it('이 시국에?', () => {
       const input = [
-        'ㅇ', 'ㅣ', ' ', 'ㅅ', 'ㅣ', 'ㄱ', 'ㅜ', 'ㄱ', 'ㅇ', 'ㅔ', '?'
+        'ㅇ', 'ㅣ', ' ', 'ㅅ', 'ㅣ', 'ㄱ', 'ㅜ', 'ㄱ', 'ㅇ', 'ㅔ', '?',
       ];
       const output = '이 시국에?';
       assert.equal(Hanguler.flatAssemble(input), output);
