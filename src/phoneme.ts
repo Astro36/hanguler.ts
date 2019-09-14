@@ -7,19 +7,19 @@ import { toChar, toCharCode } from './utils';
  * @param codeB
  */
 export function assembleConsonantCodes(codeA: CharCode, codeB: CharCode): CharCode {
-    const recipe = [
-        [12593, 12613, 12595],
-        [12596, 12616, 12597],
-        [12601, 12593, 12602],
-        [12601, 12609, 12603],
-        [12601, 12610, 12604],
-        [12601, 12613, 12605],
-        [12601, 12620, 12606],
-        [12601, 12621, 12607],
-        [12601, 12622, 12608],
-        [12610, 12613, 12612],
-    ].find(([a, b]): boolean => codeA === a && codeB === b);
-    return recipe ? recipe[2] : 0;
+  const recipe = [
+    [12593, 12613, 12595],
+    [12596, 12616, 12597],
+    [12601, 12593, 12602],
+    [12601, 12609, 12603],
+    [12601, 12610, 12604],
+    [12601, 12613, 12605],
+    [12601, 12620, 12606],
+    [12601, 12621, 12607],
+    [12601, 12622, 12608],
+    [12610, 12613, 12612],
+  ].find(([a, b]): boolean => codeA === a && codeB === b);
+  return recipe ? recipe[2] : 0;
 }
 
 /**
@@ -28,8 +28,8 @@ export function assembleConsonantCodes(codeA: CharCode, codeB: CharCode): CharCo
  * @param charB
  */
 export function assembleConsonants(charA: Char, charB: Char): Char | null {
-    const code = assembleConsonantCodes(toCharCode(charA), toCharCode(charB));
-    return code ? toChar(code) : null;
+  const code = assembleConsonantCodes(toCharCode(charA), toCharCode(charB));
+  return code ? toChar(code) : null;
 }
 
 /**
@@ -38,16 +38,16 @@ export function assembleConsonants(charA: Char, charB: Char): Char | null {
  * @param codeB
  */
 export function assembleVowelCodes(codeA: CharCode, codeB: CharCode): CharCode {
-    const recipe = [
-        [12631, 12623, 12632],
-        [12631, 12624, 12633],
-        [12631, 12643, 12634],
-        [12636, 12627, 12637],
-        [12636, 12628, 12638],
-        [12636, 12643, 12639],
-        [12641, 12643, 12642],
-    ].find(([a, b]): boolean => codeA === a && codeB === b);
-    return recipe ? recipe[2] : 0;
+  const recipe = [
+    [12631, 12623, 12632],
+    [12631, 12624, 12633],
+    [12631, 12643, 12634],
+    [12636, 12627, 12637],
+    [12636, 12628, 12638],
+    [12636, 12643, 12639],
+    [12641, 12643, 12642],
+  ].find(([a, b]): boolean => codeA === a && codeB === b);
+  return recipe ? recipe[2] : 0;
 }
 
 /**
@@ -56,8 +56,8 @@ export function assembleVowelCodes(codeA: CharCode, codeB: CharCode): CharCode {
  * @param charB
  */
 export function assembleVowels(charA: Char, charB: Char): Char | null {
-    const code = assembleVowelCodes(toCharCode(charA), toCharCode(charB));
-    return code ? toChar(code) : null;
+  const code = assembleVowelCodes(toCharCode(charA), toCharCode(charB));
+  return code ? toChar(code) : null;
 }
 
 /**
@@ -65,19 +65,19 @@ export function assembleVowels(charA: Char, charB: Char): Char | null {
  * @param code
  */
 export function disassembleConsonantCode(code: CharCode): [CharCode, CharCode] | 0 {
-    const recipe = [
-        [12593, 12613, 12595],
-        [12596, 12616, 12597],
-        [12601, 12593, 12602],
-        [12601, 12609, 12603],
-        [12601, 12610, 12604],
-        [12601, 12613, 12605],
-        [12601, 12620, 12606],
-        [12601, 12621, 12607],
-        [12601, 12622, 12608],
-        [12610, 12613, 12612],
-    ].find(([, , c]): boolean => code === c);
-    return recipe ? [recipe[0], recipe[1]] : 0;
+  const recipe = [
+    [12593, 12613, 12595],
+    [12596, 12616, 12597],
+    [12601, 12593, 12602],
+    [12601, 12609, 12603],
+    [12601, 12610, 12604],
+    [12601, 12613, 12605],
+    [12601, 12620, 12606],
+    [12601, 12621, 12607],
+    [12601, 12622, 12608],
+    [12610, 12613, 12612],
+  ].find(([, , c]): boolean => code === c);
+  return recipe ? [recipe[0], recipe[1]] : 0;
 }
 
 /**
@@ -85,8 +85,8 @@ export function disassembleConsonantCode(code: CharCode): [CharCode, CharCode] |
  * @param char
  */
 export function disassembleConsonant(char: Char): [Char, Char] | null {
-    const codes = disassembleConsonantCode(toCharCode(char));
-    return codes ? [toChar(codes[0]), toChar(codes[1])] : null;
+  const codes = disassembleConsonantCode(toCharCode(char));
+  return codes ? [toChar(codes[0]), toChar(codes[1])] : null;
 }
 
 /**
@@ -94,16 +94,16 @@ export function disassembleConsonant(char: Char): [Char, Char] | null {
  * @param code
  */
 export function disassembleVowelCode(code: CharCode): [CharCode, CharCode] | 0 {
-    const recipe = [
-        [12631, 12623, 12632],
-        [12631, 12624, 12633],
-        [12631, 12643, 12634],
-        [12636, 12627, 12637],
-        [12636, 12628, 12638],
-        [12636, 12643, 12639],
-        [12641, 12643, 12642],
-    ].find(([, , c]): boolean => code === c);
-    return recipe ? [recipe[0], recipe[1]] : 0;
+  const recipe = [
+    [12631, 12623, 12632],
+    [12631, 12624, 12633],
+    [12631, 12643, 12634],
+    [12636, 12627, 12637],
+    [12636, 12628, 12638],
+    [12636, 12643, 12639],
+    [12641, 12643, 12642],
+  ].find(([, , c]): boolean => code === c);
+  return recipe ? [recipe[0], recipe[1]] : 0;
 }
 
 /**
@@ -111,8 +111,8 @@ export function disassembleVowelCode(code: CharCode): [CharCode, CharCode] | 0 {
  * @param char
  */
 export function disassembleVowel(char: Char): [Char, Char] | null {
-    const codes = disassembleVowelCode(toCharCode(char));
-    return codes ? [toChar(codes[0]), toChar(codes[1])] : null;
+  const codes = disassembleVowelCode(toCharCode(char));
+  return codes ? [toChar(codes[0]), toChar(codes[1])] : null;
 }
 
 /**
@@ -120,7 +120,7 @@ export function disassembleVowel(char: Char): [Char, Char] | null {
  * @param code
  */
 export function isConsonantCode(code: CharCode): boolean {
-    return code >= 12593 && code <= 12622;
+  return code >= 12593 && code <= 12622;
 }
 
 /**
@@ -128,7 +128,7 @@ export function isConsonantCode(code: CharCode): boolean {
  * @param char
  */
 export function isConsonant(char: Char): boolean {
-    return isConsonantCode(toCharCode(char));
+  return isConsonantCode(toCharCode(char));
 }
 
 /**
@@ -136,7 +136,7 @@ export function isConsonant(char: Char): boolean {
  * @param code
  */
 export function isBasicConsonantCode(code: CharCode): boolean {
-    return (code >= 12593 && code <= 12594)
+  return (code >= 12593 && code <= 12594)
         || code === 12596
         || (code >= 12598 && code <= 12601)
         || (code >= 12609 && code <= 12611)
@@ -148,7 +148,7 @@ export function isBasicConsonantCode(code: CharCode): boolean {
  * @param char
  */
 export function isBasicConsonant(char: Char): boolean {
-    return isBasicConsonantCode(toCharCode(char));
+  return isBasicConsonantCode(toCharCode(char));
 }
 
 /**
@@ -156,7 +156,7 @@ export function isBasicConsonant(char: Char): boolean {
  * @param code
  */
 export function isComplexConsonantCode(code: CharCode): boolean {
-    return code === 12595
+  return code === 12595
         || code === 12597
         || (code >= 12602 && code <= 12608)
         || code === 12612;
@@ -167,7 +167,7 @@ export function isComplexConsonantCode(code: CharCode): boolean {
  * @param char
  */
 export function isComplexConsonant(char: Char): boolean {
-    return isComplexConsonantCode(toCharCode(char));
+  return isComplexConsonantCode(toCharCode(char));
 }
 
 /**
@@ -175,7 +175,7 @@ export function isComplexConsonant(char: Char): boolean {
  * @param code
  */
 export function isVowelCode(code: CharCode): boolean {
-    return code >= 12623 && code <= 12643;
+  return code >= 12623 && code <= 12643;
 }
 
 /**
@@ -183,7 +183,7 @@ export function isVowelCode(code: CharCode): boolean {
  * @param char
  */
 export function isVowel(char: Char): boolean {
-    return isVowelCode(toCharCode(char));
+  return isVowelCode(toCharCode(char));
 }
 
 /**
@@ -191,7 +191,7 @@ export function isVowel(char: Char): boolean {
  * @param code
  */
 export function isBasicVowelCode(code: CharCode): boolean {
-    return (code >= 12623 && code <= 12631)
+  return (code >= 12623 && code <= 12631)
         || (code >= 12635 && code <= 12636)
         || (code >= 12640 && code <= 12641)
         || code === 12643;
@@ -202,7 +202,7 @@ export function isBasicVowelCode(code: CharCode): boolean {
  * @param char
  */
 export function isBasicVowel(char: Char): boolean {
-    return isBasicVowelCode(toCharCode(char));
+  return isBasicVowelCode(toCharCode(char));
 }
 
 /**
@@ -210,7 +210,7 @@ export function isBasicVowel(char: Char): boolean {
  * @param code
  */
 export function isComplexVowelCode(code: CharCode): boolean {
-    return (code >= 12632 && code <= 12634)
+  return (code >= 12632 && code <= 12634)
         || (code >= 12637 && code <= 12639)
         || code === 12642;
 }
@@ -220,7 +220,7 @@ export function isComplexVowelCode(code: CharCode): boolean {
  * @param char
  */
 export function isComplexVowel(char: Char): boolean {
-    return isComplexVowelCode(toCharCode(char));
+  return isComplexVowelCode(toCharCode(char));
 }
 
 /**
@@ -228,7 +228,7 @@ export function isComplexVowel(char: Char): boolean {
  * @param code
  */
 export function isChoseongCode(code: CharCode): boolean {
-    return code === 12593
+  return code === 12593
         || code === 12594
         || code === 12596
         || (code >= 12599 && code <= 12601)
@@ -241,7 +241,7 @@ export function isChoseongCode(code: CharCode): boolean {
  * @param char
  */
 export function isChoseong(char: Char): boolean {
-    return isChoseongCode(toCharCode(char));
+  return isChoseongCode(toCharCode(char));
 }
 
 /**
@@ -249,7 +249,7 @@ export function isChoseong(char: Char): boolean {
  * @param code
  */
 export function isJungseongCode(code: CharCode): boolean {
-    return code >= 12623 && code <= 12643;
+  return code >= 12623 && code <= 12643;
 }
 
 /**
@@ -257,7 +257,7 @@ export function isJungseongCode(code: CharCode): boolean {
  * @param char
  */
 export function isJungseong(char: Char): boolean {
-    return isJungseongCode(toCharCode(char));
+  return isJungseongCode(toCharCode(char));
 }
 
 /**
@@ -265,7 +265,7 @@ export function isJungseong(char: Char): boolean {
  * @param code
  */
 export function isJongseongCode(code: CharCode): boolean {
-    return (code >= 12593 && code <= 12599)
+  return (code >= 12593 && code <= 12599)
         || (code >= 12601 && code <= 12610)
         || (code >= 12612 && code <= 12616)
         || (code >= 12618 && code <= 12622);
@@ -276,5 +276,5 @@ export function isJongseongCode(code: CharCode): boolean {
  * @param char
  */
 export function isJongseong(char: Char): boolean {
-    return isJongseongCode(toCharCode(char));
+  return isJongseongCode(toCharCode(char));
 }
