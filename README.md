@@ -2,7 +2,7 @@
 
 > Simple Hangul Manipulating Library
 
-[![npm](https://img.shields.io/npm/v/hanguler.svg?style=flat-square)](https://www.npmjs.com/package/hanguler) [![npm](https://img.shields.io/npm/dt/hanguler.svg?style=flat-square)](https://www.npmjs.com/package/hanguler)
+[![NPM](https://img.shields.io/npm/v/hanguler?style=for-the-badge)](https://www.npmjs.com/package/hanguler) ![NODE](https://img.shields.io/node/v/hanguler?style=for-the-badge) [![DOWNLOADS](https://img.shields.io/npm/dt/hanguler?style=for-the-badge)](https://www.npmjs.com/package/hanguler) [![LICENSE](https://img.shields.io/npm/l/hanguler?style=for-the-badge)](./LICENSE)
 
 ## ChangeLog
 
