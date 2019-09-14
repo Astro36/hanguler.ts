@@ -2,7 +2,7 @@
 
 > Simple Hangul Manipulating Library
 
-[![NPM](https://img.shields.io/npm/v/hanguler?style=for-the-badge)](https://www.npmjs.com/package/hanguler) ![NODE](https://img.shields.io/node/v/hanguler?style=for-the-badge) [![DOWNLOADS](https://img.shields.io/npm/dt/hanguler?style=for-the-badge)](https://www.npmjs.com/package/hanguler) [![LICENSE](https://img.shields.io/npm/l/hanguler?style=for-the-badge)](./LICENSE)
+[![NPM](https://img.shields.io/npm/v/hanguler?style=for-the-badge&logo=npm)](https://www.npmjs.com/package/hanguler) [![NODE](https://img.shields.io/node/v/hanguler?style=for-the-badge&logo=node.js)](https://nodejs.org) [![DOWNLOADS](https://img.shields.io/npm/dt/hanguler?style=for-the-badge)](https://www.npmjs.com/package/hanguler) [![LICENSE](https://img.shields.io/npm/l/hanguler?style=for-the-badge)](./LICENSE)
 
 ## ChangeLog
 
@@ -61,6 +61,8 @@ const output = Hanguler.flatAssemble(Hanguler.flatDisassemble(input).map(stronge
 
 console.log(output); // 쒸프트키까 안 빠쪄요ㅠㅠ
 ```
+
+See [more](./test/example.ts)
 
 ## License
 
