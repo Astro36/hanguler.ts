@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.2.1
+
+Released Sep 16, 2019
+
+### Changed
+
+- Change type names: `Chars`, `CharCodes`, `Recipe`, and `RecipeCode`
+
 ## v0.2.0
 
 Released Jul 22, 2019
