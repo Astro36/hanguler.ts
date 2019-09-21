@@ -16,8 +16,8 @@
   "devDependencies": {
     "@types/mocha": "^5.2.7",
     "@types/node": "^12.7.5",
-    "@typescript-eslint/eslint-plugin": "^2.2.0",
-    "@typescript-eslint/parser": "^2.2.0",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",
@@ -34,7 +34,7 @@
     "docs": "typedoc src --out docs --theme minimal",
     "lint": "eslint src test --ext .js,.ts",
     "lint:fix": "eslint src test --ext .js,.ts --fix",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "test": "mocha --require ts-node/register test/**/*.{ts,tsx}"
   },
   "repository": {
