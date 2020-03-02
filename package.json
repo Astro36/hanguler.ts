@@ -1,8 +1,9 @@
 {
   "name": "hanguler",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Simple Hangul Manipulating Library",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "keywords": [
     "typescript",
     "korean",
@@ -14,23 +15,23 @@
     "test": "test"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.7.5",
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "@typescript-eslint/parser": "^2.3.0",
-    "eslint": "^6.4.0",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.7",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "mocha": "^6.2.0",
-    "ts-node": "^8.4.1",
-    "typedoc": "^0.15.0",
-    "typescript": "^3.6.3"
+    "eslint-plugin-import": "^2.20.1",
+    "mocha": "^7.1.0",
+    "ts-node": "^8.6.2",
+    "typedoc": "^0.16.11",
+    "typescript": "^3.8.3"
   },
   "engines": {
     "node": ">=11.0.0"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc src/index.ts",
     "docs": "typedoc src --out docs --theme minimal",
     "lint": "eslint src test --ext .js,.ts",
     "lint:fix": "eslint src test --ext .js,.ts --fix",
