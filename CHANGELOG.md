@@ -1,12 +1,28 @@
 # Changelog
 
+## v0.2.2
+
+Released Jul 15, 2020
+
+### Added
+
+- Add TypeScript declaration file.
+
+### Fixed
+
+- Fix Typescript compile output path.
+
+### Security
+
+- Update security vulnerability found dependency.
+
 ## v0.2.1
 
 Released Sep 16, 2019
 
 ### Changed
 
-- Change type names: `Chars`, `CharCodes`, `Recipe`, and `RecipeCode`
+- Change type names: `Chars`, `CharCodes`, `Recipe`, and `RecipeCode`.
 
 ## v0.2.0
 
@@ -14,7 +30,7 @@ Released Jul 22, 2019
 
 ### Changed
 
-- Migrate to TypeScript
+- Migrate to TypeScript.
 
 ## v0.1.2
 
