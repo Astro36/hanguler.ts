@@ -25,4 +25,13 @@ module.exports = {
       },
     },
   },
+  rules: {
+    'import/extensions': ['error', 'ignorePackages', {
+      js: 'never',
+      jsx: 'never',
+      mjs: 'never',
+      ts: 'never',
+      tsx: 'never',
+    }],
+  },
 };
