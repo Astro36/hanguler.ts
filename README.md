@@ -2,7 +2,11 @@
 
 > Simple Hangul Manipulating Library
 
-[![NPM](https://img.shields.io/npm/v/hanguler?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/hanguler) [![NODE](https://img.shields.io/node/v/hanguler?logo=node.js&style=for-the-badge)](https://nodejs.org) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Astro36/hanguler.ts/Node%20CI?logo=github&style=for-the-badge)](https://github.com/Astro36/hanguler.ts/actions) [![DOWNLOADS](https://img.shields.io/npm/dt/hanguler?logo=npm&style=for-the-badge)](https://www.npmjs.com/package/hanguler) [![LICENSE](https://img.shields.io/npm/l/hanguler?style=for-the-badge)](./LICENSE)
+[![NPM](https://img.shields.io/npm/v/hanguler?logo=npm&logoColor=white&style=for-the-badge)](https://www.npmjs.com/package/hanguler)
+[![Node.js](https://img.shields.io/node/v/hanguler?logo=node.js&logoColor=white&style=for-the-badge)](https://nodejs.org)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/Astro36/hanguler.ts/Node.js?logo=github&logoColor=white&style=for-the-badge)](https://github.com/Astro36/hanguler.ts/actions)
+[![Downloads](https://img.shields.io/npm/dt/hanguler?logo=npm&logoColor=white&style=for-the-badge)](https://www.npmjs.com/package/hanguler)
+[![License](https://img.shields.io/npm/l/hanguler?style=for-the-badge)](./LICENSE)
 
 ## ChangeLog
 
